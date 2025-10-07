@@ -1,7 +1,7 @@
 <template>
   <div class="parallax-container" ref="containerRef">
-    <div 
-      class="parallax-background" 
+    <div
+      class="parallax-background"
       :style="backgroundStyle"
       ref="backgroundRef"
     ></div>
@@ -26,6 +26,11 @@ const props = defineProps({
     type: String,
     default: 'transparent'
   },
+  //Height of the parallax container
+  height: {
+    type: String,
+    default: '600px'
+  },
   // Parallax speed (0 = no movement, 1 = normal, 2 = double speed)
   speed: {
     type: Number,
@@ -41,7 +46,7 @@ const props = defineProps({
   // Minimum parallax offset (in pixels)
   minOffset: {
     type: Number,
-    default: -100
+    default: 0
   },
   // Maximum parallax offset (in pixels)
   maxOffset: {
@@ -68,6 +73,7 @@ const props = defineProps({
 // Refs
 const containerRef = ref(null)
 const backgroundRef = ref(null)
+const heightStyle = ref(props.height)
 
 // Computed background style
 const backgroundStyle = computed(() => {
@@ -77,7 +83,7 @@ const backgroundStyle = computed(() => {
     backgroundSize: props.backgroundSize,
     backgroundPosition: props.backgroundPosition
   }
-  
+
   return baseStyle
 })
 
@@ -86,23 +92,23 @@ let scrollListener = null
 
 const updateParallax = () => {
   if (!props.enabled || !containerRef.value || !backgroundRef.value) return
-  
+
   const containerRect = containerRef.value.getBoundingClientRect()
   const windowHeight = window.innerHeight
   const containerTop = containerRect.top
   const containerHeight = containerRect.height
-  
+
   // Calculate scroll progress (0 to 1)
-  const scrollProgress = Math.max(0, Math.min(1, 
-    (windowHeight - containerTop) / (windowHeight + containerHeight)
+  const scrollProgress = Math.max(0, Math.min(1, (windowHeight - containerTop) / (windowHeight + containerHeight)
   ))
-  
+  console.log('Scroll Progress:', scrollProgress)
+
   // Calculate offset based on direction and speed
   let offsetX = 0
   let offsetY = 0
   const maxOffset = Math.max(Math.abs(props.minOffset), Math.abs(props.maxOffset))
   const calculatedOffset = scrollProgress * maxOffset * props.speed
-  
+
   switch (props.direction) {
     case 'up':
       offsetY = -calculatedOffset
@@ -117,13 +123,14 @@ const updateParallax = () => {
       offsetX = calculatedOffset
       break
   }
-  
+
   // Apply the transform
   backgroundRef.value.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`
 }
 
 // Lifecycle
 onMounted(() => {
+  console.log('ParallaxBackground mounted');
   if (props.enabled) {
     scrollListener = () => updateParallax()
     window.addEventListener('scroll', scrollListener, { passive: true })
@@ -146,7 +153,7 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 100%;
+  height: v-bind(heightStyle);
 }
 
 .parallax-background {

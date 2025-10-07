@@ -17,11 +17,11 @@
     <br />        
     <br />
     <!-- CHANGER IT WITH YOUR GITHUB PAGES LINK -->
-    <a href="https://joaquinabenza.github.io/vue3-reponsive-dasboard/#/">Live Demo</a>
+    <a href="https://joaquinabenza.github.io/vue3-parallax/#/">Live Demo</a>
     ·<!-- CHANGER IT WITH YOUR GITHUB ISSUES LINK -->
-    <a href="https://github.com/joaquinabenza/vue3-reponsive-dasboard/issues">Report Bug</a>
+    <a href="https://github.com/joaquinabenza/vue3-parallax/issues">Report Bug</a>
     ·<!-- CHANGER IT WITH YOUR GITHUB ISSUES LINK -->
-    <a href="https://github.com/joaquinabenza/vue3-reponsive-dasboard/issues">Request Feature</a>
+    <a href="https://github.com/joaquinabenza/vue3-parallax/issues">Request Feature</a>
   </p>
 </div>
 
@@ -108,20 +108,6 @@ Congratulations! Your package is now published to npm 🎉 <br>
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
-
-<!-- ROADMAP -->
-
-## Roadmap
-
-> For user to edit this section:
-
-- [x] Add vite configuration
-- [x] Add vitest
-- [x] Add workflows
-- [x] Add vitepress documentation
-- [ ] Some other stuff
-  - [ ] Stuff 1
-  - [ ] Stuff 2
 
 <!-- CONTRIBUTING -->
 

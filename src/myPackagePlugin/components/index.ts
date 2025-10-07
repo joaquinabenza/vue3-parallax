@@ -1,1 +1,1 @@
-export { default as ComponentA } from './ComponentA.vue'
+export { default as ParallaxBackground } from './ParallaxBackground.vue'

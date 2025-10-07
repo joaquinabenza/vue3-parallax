@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import ParallaxBackground from './components/ParallaxBackground.vue'
+import ParallaxBackground from './myPackagePlugin/components/ParallaxBackground.vue'
 </script>
 
 <template>
-  <div class="app">
+  <div class="demo">
     <h1>Vue3 Parallax DEMO</h1>
     <h2>Basic Usage</h2>
     <ParallaxBackground
       background-image="https://picsum.photos/1920/1080"
       speed="7"
+      direction="down"
     >
       <div class="hero-content">
         <h1>Welcome to My Site</h1>
@@ -20,13 +21,13 @@ import ParallaxBackground from './components/ParallaxBackground.vue'
       <ParallaxBackground
       background-image="https://picsum.photos/1920/1080"
       speed="7"
-      direction="down"
+      direction="up"
       background-size="cover"
       min-offset="-200"
       max-offset="200"
     >
       <div class="content">
-        <h2>Advanced Parallax</h2>
+        <h1>Advanced Parallax</h1>
         <p>Customized background with specific movement parameters</p>
       </div>
     </ParallaxBackground>
@@ -52,7 +53,7 @@ import ParallaxBackground from './components/ParallaxBackground.vue'
 }
 
 .hero-content {
-  height: 100vh;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
