@@ -37,8 +37,8 @@ export default defineConfig(({ mode }) => {
       build: {
         lib: {
           entry: resolve(__dirname, 'src/myPackagePlugin/index.ts'),
-          name: 'Vue3ViteNpmTemplate',
-          fileName: 'vue3-vite-npm-template',
+          name: 'Vue3-parallax',
+          fileName: 'vue3-parallax',
         },
         rollupOptions: {
           external: ['vue'],

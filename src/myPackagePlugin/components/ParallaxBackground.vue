@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 // Props
@@ -35,13 +35,13 @@ const props = defineProps({
   speed: {
     type: Number,
     default: 0.5,
-    validator: (value) => value >= 0 && value <= 2
+    validator: (value:number) => value >= 0 && value <= 2
   },
   // Parallax direction ('up', 'down', 'left', 'right')
   direction: {
     type: String,
     default: 'up',
-    validator: (value) => ['up', 'down', 'left', 'right'].includes(value)
+    validator: (value:string) => ['up', 'down', 'left', 'right'].includes(value)
   },
   // Minimum parallax offset (in pixels)
   minOffset: {
@@ -71,8 +71,8 @@ const props = defineProps({
 })
 
 // Refs
-const containerRef = ref(null)
-const backgroundRef = ref(null)
+const containerRef = ref<HTMLElement | null>(null)
+const backgroundRef = ref<HTMLElement | null>(null)
 const heightStyle = ref(props.height)
 
 // Computed background style
@@ -88,7 +88,7 @@ const backgroundStyle = computed(() => {
 })
 
 // Parallax effect
-let scrollListener = null
+let scrollListener:any = null
 
 const updateParallax = () => {
   if (!props.enabled || !containerRef.value || !backgroundRef.value) return
@@ -125,7 +125,10 @@ const updateParallax = () => {
   }
 
   // Apply the transform
-  backgroundRef.value.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`
+  if(backgroundRef.value){
+    backgroundRef.value.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`
+
+  }
 }
 
 // Lifecycle
