@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
       },
       resolve: {
         alias: {
-          '~': resolve(__dirname, 'src', 'myPackagePlugin'),
+          '~': resolve(__dirname, 'src', 'Vue3ParallaxPlugin'),
         },
       },
       build: {
@@ -31,12 +31,12 @@ export default defineConfig(({ mode }) => {
       },
       resolve: {
         alias: {
-          '~': resolve(__dirname, 'src', 'myPackagePlugin'),
+          '~': resolve(__dirname, 'src', 'Vue3ParallaxPlugin'),
         },
       },
       build: {
         lib: {
-          entry: resolve(__dirname, 'src/myPackagePlugin/index.ts'),
+          entry: resolve(__dirname, 'src/Vue3ParallaxPlugin/index.ts'),
           name: 'Vue3-parallax',
           fileName: 'vue3-parallax',
         },
