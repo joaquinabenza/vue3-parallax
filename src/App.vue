@@ -10,14 +10,15 @@ import ParallaxBackground from './myPackagePlugin/components/ParallaxBackground.
       background-image="https://picsum.photos/1920/1080"
       speed="7"
       direction="down"
+      backgroundPosition="top"
     >
       <div class="hero-content">
         <h1>Welcome to My Site</h1>
         <p>This content scrolls normally while the background moves at a different speed</p>
       </div>
     </ParallaxBackground>
-
-    <h2>Advanced Usage</h2>
+    <h2>Advanced Usage</h2><h2>Advanced Usage</h2><h2>Advanced Usage</h2><h2>Advanced Usage</h2><h2>Advanced Usage</h2><h2>Advanced Usage</h2><h2>Advanced Usage</h2><h2>Advanced Usage</h2><h2>Advanced Usage</h2><h2>Advanced Usage</h2><h2>Advanced Usage</h2><h2>Advanced Usage</h2><h2>Advanced Usage</h2><h2>Advanced Usage</h2><h2>Advanced Usage</h2>
+    <!-- <h2>Advanced Usage</h2>
       <ParallaxBackground
       background-image="https://picsum.photos/1920/1080"
       speed="7"
@@ -42,7 +43,7 @@ import ParallaxBackground from './myPackagePlugin/components/ParallaxBackground.
       <h3>Gradient Background</h3>
       <p>No image needed - works with CSS gradients too!</p>
     </div>
-  </ParallaxBackground>
+  </ParallaxBackground> -->
 
   </div>
 </template>
