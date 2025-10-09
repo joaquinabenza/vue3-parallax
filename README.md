@@ -10,7 +10,7 @@
 
 ![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) 
 
-  <h1 align="center">Vue3 Parallax</h1>
+  <h1 align="center">vue3-Parallax</h1>
    <!-- DESCRIPTION -->
   <p align="center">
     A smooth and customizable parallax set. 

@@ -5,7 +5,7 @@ export default defineConfig({
   title: 'Vue3 vite NPM template',
   description: 'Vitepress documentation example for vue3-Parallax repository',
   lang: 'en-US',
-  base: '/vue3-Parallax/',
+  base: '/vue3-parallax/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/logo.webp',

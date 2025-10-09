@@ -4,7 +4,7 @@ import ParallaxBackground from './Vue3ParallaxPlugin/components/ParallaxBackgrou
 
 <template>
   <div class="demo">
-    <h1>Vue3 Parallax DEMO</h1>
+    <h1>vue3-Parallax DEMO</h1>
     <h2>Basic Usage</h2>
     <ParallaxBackground
       background-image="https://picsum.photos/1920/1080"
