@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ParallaxBackground from './myPackagePlugin/components/ParallaxBackground.vue'
+import ParallaxBackground from './Vue3ParallaxPlugin/components/ParallaxBackground.vue'
 </script>
 
 <template>

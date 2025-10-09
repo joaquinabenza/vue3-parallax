@@ -1,10 +1,12 @@
 <template>
   <div class="parallax-container" ref="containerRef">
+    <slot name="background" class="parallax-background">
     <div
       class="parallax-background"
       :style="backgroundStyle"
       ref="backgroundRef"
     ></div>
+    </slot>
     <div class="parallax-content">
       <slot />
     </div>
