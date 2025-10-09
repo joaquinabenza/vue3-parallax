@@ -71,24 +71,16 @@ import {ParallaxBackground} from 'vue3-parallax'
 
 _For more examples, please refer to the [Documentation](https://joaquinabenza.github.io/vue3-parallax/)_
 
-<!-- CONTRIBUTING -->
-
 ## Contributing
 
 Contributions to the project is highly appreciated. If you have any suggestions/questions/requests please consider [opening an issue](https://github.com/joaquinabenza/vue3-Parallax/issues/new). If you want to contribute to the project, fixing an open issue is greatly recommended and appreciated. To see the all contribution rules please check the [contribution rules](CONTRIBUTING.md).
-
-<!-- LICENSE -->
 
 ## License
 
 Distributed under the MIT License. See [LICENSE](LICENSE.md) for more information.
 
-<!-- CONTACT -->
-
 ## Contact
-
-> For user to edit this section:
 
 JoaquinAbenza - [@joaquinjabenza](https://x.com/joaquinjabenza) 
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/joaquinabenza/vue3-Parallax](https://github.com/joaquinabenza/vue3-Parallax)
