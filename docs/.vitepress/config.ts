@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'Vue3 vite NPM template',
+  title: 'Vue3 Parallax',
   description: 'Vitepress documentation example for vue3-Parallax repository',
   lang: 'en-US',
   base: '/vue3-parallax/',
