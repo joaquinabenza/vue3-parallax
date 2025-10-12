@@ -3,7 +3,6 @@
     <slot name="background" class="parallax-background">
     <div
       class="parallax-background"
-      :style="backgroundStyle"
       ref="backgroundRef"
     ></div>
     </slot>
@@ -77,17 +76,12 @@ const containerRef = ref<HTMLElement | null>(null)
 const backgroundRef = ref<HTMLElement | null>(null)
 const heightStyle = ref(props.height)
 
+const backgroundImage = ref(props.backgroundImage ? `url(${props.backgroundImage})` : 'none')
+const backgroundColor = ref(props.backgroundColor)
+const backgroundSize = ref(props.backgroundSize)
+const backgroundPosition = ref(props.backgroundPosition)
 // Computed background style
-const backgroundStyle = computed(() => {
-  const baseStyle = {
-    backgroundImage: props.backgroundImage ? `url(${props.backgroundImage})` : 'none',
-    backgroundColor: props.backgroundColor,
-    backgroundSize: props.backgroundSize,
-    backgroundPosition: props.backgroundPosition
-  }
 
-  return baseStyle
-})
 
 // Parallax effect
 let scrollListener:any = null
@@ -101,28 +95,29 @@ const updateParallax = () => {
   const containerHeight = containerRect.height
 
   // Calculate scroll progress (0 to 1)
-  const scrollProgress = Math.max(0, Math.min(1, (windowHeight - containerTop) / (windowHeight + containerHeight)
-  ))
+  //const scrollProgress = Math.max(0, Math.min(1, (windowHeight - containerTop) / (windowHeight + containerHeight)))
+  const scrollProgress = getParallaxVisibilityPercent(containerRef.value) / 100;
   console.log('Scroll Progress:', scrollProgress)
 
   // Calculate offset based on direction and speed
   let offsetX = 0
   let offsetY = 0
   const maxOffset = Math.max(Math.abs(props.minOffset), Math.abs(props.maxOffset))
+  const newWidth = maxOffset + backgroundRef.value.clientWidth;
   const calculatedOffset = scrollProgress * maxOffset * props.speed
 
   switch (props.direction) {
     case 'up':
-      offsetY = -calculatedOffset
-      break
-    case 'down':
       offsetY = calculatedOffset
       break
+    case 'down':
+      offsetY = -calculatedOffset
+      break
     case 'left':
-      offsetX = -calculatedOffset
+      offsetX = calculatedOffset
       break
     case 'right':
-      offsetX = calculatedOffset
+      offsetX = -calculatedOffset
       break
   }
 
@@ -131,6 +126,18 @@ const updateParallax = () => {
     backgroundRef.value.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`
 
   }
+}
+
+function getParallaxVisibilityPercent(el) {
+  if (!el) return 0;
+  const rect = el.getBoundingClientRect();
+  const vh = window.innerHeight || document.documentElement.clientHeight;
+  const top = rect.top;
+  const height = rect.height;
+  // 0 cuando el top está en el borde inferior (aún no visible)
+  // 1 cuando el bottom está en el borde superior (ya desapareció)
+  const progress = (vh - top) / (vh + height);
+  return Math.max(0, Math.min(1, progress)) * 100;
 }
 
 // Lifecycle
@@ -166,10 +173,14 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 150%;
   will-change: transform;
   transition: transform 0.1s ease-out;
   z-index: -1;
+  background-image: v-bind(backgroundImage);
+  background-color: v-bind(backgroundColor);
+  background-size: v-bind(backgroundSize);
+  background-position: v-bind(backgroundPosition);
 }
 
 .parallax-content {

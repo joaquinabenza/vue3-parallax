@@ -23,7 +23,7 @@ hero:
 features:
   - title: Parallax Background
     details: Use any image to style your parallax background or add any other content like videos in el slot
-  - title: Feature B
+  - title: Parallax Zoom
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
