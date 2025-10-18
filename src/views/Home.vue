@@ -1,30 +1,61 @@
 <template>
-  <h1>Vue3 Parallax DEMO</h1>    
-    <h2>Basic Usage</h2>
-    <ParallaxBackground background-image="https://picsum.photos/1920/1080" :speed="2" direction="down"
-      backgroundPosition="top">
-      <div class="hero-content">
-        <h1>Welcome to My Site</h1>
-        <p>This content scrolls normally while the background moves at a different speed</p>
-      </div>
-    </ParallaxBackground>
-    <h2>Advanced Usage</h2>
-    <ParallaxBackground background-image="https://picsum.photos/1920/1080" :speed="3" direction="up"
-      background-size="cover" :min-offset="-200" :max-offset="200">
-      <div class="content">
-        <h1>Advanced Parallax</h1>
-        <p>Customized background with specific movement parameters</p>
-      </div>
-    </ParallaxBackground>
-    <h2>Gradient Background</h2>
-    <ParallaxBackground backgroundColor="linear-gradient(45deg, #667eea, #764ba2)" :speed="1.3" direction="left">
-      <div class="hero-content">
-        <h3>Gradient Background</h3>
-        <p>No image needed - works with any Html Element!</p>
-      </div>
-    </ParallaxBackground>
+  <div class="page">
+<section>
+  <h1>Vue3 Parallax DEMO</h1>
+  <div class="cards-container container mb-5">
+    <RouterLink to="/parallax-controller">
+      <ParallaxCard
+        data-image="https://picsum.photos/800/600">
+        <template v-slot:header>
+          <h1>Parallax Controller</h1>
+        </template>
+        <template v-slot:content>
+          <p>Package Wraping for Vue</p>
+        </template>
+      </ParallaxCard>
+    </RouterLink>
+
+    <RouterLink to="/background">
+      <ParallaxCard
+        data-image="https://picsum.photos/800/600">
+        <template v-slot:header>
+          <h1>Parallax Background</h1>
+        </template>
+        <template v-slot:content>
+          <p>Simple background parallax</p>
+        </template>
+      </ParallaxCard>
+    </RouterLink>
+
+    <RouterLink to="/zoom">
+      <ParallaxCard
+        data-image="https://picsum.photos/800/600">
+        <template v-slot:header>
+          <h1>Parallax Zoom</h1>
+        </template>
+        <template v-slot:content>
+          <p>Template your different landing</p>
+        </template>
+      </ParallaxCard>
+    </RouterLink>
+
+    <RouterLink to="/cards">
+      <ParallaxCard
+        data-image="https://picsum.photos/800/600">
+        <template v-slot:header>
+          <h1>Parallax Card</h1>
+        </template>
+        <template v-slot:content>
+          <p>Awesome card effects</p>
+        </template>
+      </ParallaxCard>
+    </RouterLink>
+  </div>
+</section>  
+</div>
 </template>
 
 <script lang="ts" setup>
+import ParallaxCard from '../Vue3ParallaxPlugin/components/ParallaxCard.vue';
 import ParallaxBackground from '../Vue3ParallaxPlugin/components/ParallaxBackground.vue'
 </script>

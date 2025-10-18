@@ -1,29 +1,37 @@
 
 <template>
   <div class="root">
-    <img ref="background" class="background" src="https://picsum.photos/1920/1080" />
+    <img ref="background" class="background" :src="props.background" />
     <img
       ref="foreground"
       class="foreground"
-      src="../assets/foreground.png"
+      :src="props.foreground"
     />
-    <div ref="first" class="section section-1">
-      <div>
-        <h1>Parallax Made Easy.</h1>
-      </div>
-    </div>
-    <div ref="second" class="section section-2">
-      <div>
-        <h2>Here's more info</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit...</p>
-      </div>
-    </div>
+    <slot></slot>
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-
+const props = defineProps({
+  // Initial zoom level (percentage)
+  background: {
+    type: String,
+    default: 'https://picsum.photos/1920/1080',
+    validator: (value:number) => value >= 0 && value <= 5
+  },
+  foreground: {
+    type: String,
+    default: '/foreground.png',
+    validator: (value:number) => value >= 0 && value <= 5
+  },
+  maxZoom: {
+    type: Number,
+    default: 10,
+    validator: (value:number) => value >= 0 && value <= 200
+  },
+  refs:{ type: Array}
+})
 const foreground = ref(null)
 const background = ref(null)
 const first = ref(null)
@@ -37,23 +45,45 @@ onUnmounted(() => {
   document.removeEventListener('scroll', handleScroll)
 })
 
-const handleScroll = (evt) => {
+const handleScroll = (evt:Event) => {
   const scrollY = window.scrollY
+  // ensure props.refs is an array and has at least one element
+  if (!Array.isArray(props.refs) || props.refs.length === 0) return;
   // decreases as user scrolls
+  const first = props.refs[0]
+  const second = props.refs[1]
+  if (!first?.value || !first?.value) return;
   first.value.style.opacity =
-    (100 - (scrollY + window.innerHeight - first.value.offsetHeight)) / 100
+    getParallaxVisibilityPercent(first) / 100
   // increases as user scrolls
+  if (!second?.value) return;
   second.value.style.opacity =
-    (scrollY + window.innerHeight - second.value.offsetTop) / 100
+  getParallaxVisibilityPercent(first) / 100
 
   const maxBackgroundSize = 120
   const backgroundSize = scrollY / (maxBackgroundSize - 100) // increases as user scrolls
 
   // zoom the background at a slower rate
-  background.value.style.transform =
-    `scale(${  (100 + backgroundSize * 0.4) / 100  })`
-  foreground.value.style.transform =
-    `scale(${  (100 + backgroundSize) / 100  })`
+  if (background?.value) {
+    background.value.style.transform =
+      `scale(${  (100 + backgroundSize * 0.4) / 100  })`
+  }
+  if (foreground?.value) {
+    foreground.value.style.transform =
+      `scale(${  (100 + backgroundSize) / 100  })`
+  }
+}
+
+function getParallaxVisibilityPercent(el) {
+  if (!el) return 0;
+  const rect = el.value.getBoundingClientRect();
+  const vh = window.innerHeight || document.documentElement.clientHeight;
+  const top = rect.top;
+  const height = rect.height;
+  // 0 cuando el top está en el borde inferior (aún no visible)
+  // 1 cuando el bottom está en el borde superior (ya desapareció)
+  const progress = (vh - top) / (vh + height);
+  return Math.max(0, Math.min(1, progress)) * 100;
 }
    
 </script>
