@@ -5,7 +5,7 @@
   <div class="cards-container container mb-5">
     <RouterLink to="/parallax-controller">
       <ParallaxCard
-        data-image="https://picsum.photos/800/600">
+        data-image="https://picsum.photos/1920/1080">
         <template v-slot:header>
           <h1>Parallax Controller</h1>
         </template>
@@ -17,9 +17,9 @@
 
     <RouterLink to="/background">
       <ParallaxCard
-        data-image="https://picsum.photos/800/600">
+        data-image="https://picsum.photos/1920/1080">
         <template v-slot:header>
-          <h1>Parallax Background</h1>
+          <h1>Parallax Bg</h1>
         </template>
         <template v-slot:content>
           <p>Simple background parallax</p>
@@ -29,7 +29,7 @@
 
     <RouterLink to="/zoom">
       <ParallaxCard
-        data-image="https://picsum.photos/800/600">
+        data-image="https://picsum.photos/1920/1080">
         <template v-slot:header>
           <h1>Parallax Zoom</h1>
         </template>
@@ -41,7 +41,7 @@
 
     <RouterLink to="/cards">
       <ParallaxCard
-        data-image="https://picsum.photos/800/600">
+        data-image="https://picsum.photos/1920/1080">
         <template v-slot:header>
           <h1>Parallax Card</h1>
         </template>

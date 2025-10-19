@@ -14,9 +14,9 @@
     "types": ["node"],
     "baseUrl": "./",
     "paths": {
-      "~/*": ["src/myPackagePlugin/*"]
+      "~/*": ["src/Vue3ParallaxPlugin/*"]
     }
   },
-  "include": ["src/myPackagePlugin/*.ts", "src/myPackagePlugin/*.d.ts"],
+  "include": ["src/Vue3ParallaxPlugin/*.ts", "src/Vue3ParallaxPlugin/*.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
