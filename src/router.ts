@@ -1,17 +1,12 @@
 import { createMemoryHistory, createRouter, RouteRecordRaw} from 'vue-router'
 
-import HomeView from './Views/Home.vue'
-import ZoomView from './Views/Zoom.vue'
-import CardsView from './Views/Cards.vue'
-import ParallaxControllerView from './Views/ParallaxController.vue'
-
 const routes: RouteRecordRaw[] = [
   { path: '/:pathMatch(.*)*', redirect: '/'},
   { path: '/home', redirect: '/' },
-  { path: '/', component: HomeView },
-  { path: '/zoom', component: ZoomView },
-  { path: '/Cards', component: CardsView },
-  { path: '/parallax-controller', component: ParallaxControllerView }
+  { path: '/', component: () => import('./Views/Home.vue') },
+  { path: '/zoom', component: () => import('./Views/Zoom.vue') },
+  { path: '/Cards', component: () => import('./Views/Cards.vue') },
+  { path: '/parallax-controller', component: () => import('./Views/ParallaxController.vue') }
 ]
 
 export const router = createRouter({
