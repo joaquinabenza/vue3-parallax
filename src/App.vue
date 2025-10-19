@@ -4,6 +4,7 @@
       <nav>
         <RouterLink to="/">Home</RouterLink> 
         <RouterLink to="/parallax-controller">Parallax Controller</RouterLink> 
+        <RouterLink to="/background">Bg</RouterLink> 
         <RouterLink to="/zoom">Zoom</RouterLink> 
         <RouterLink to="/cards">Cards</RouterLink>
       </nav>

@@ -4,6 +4,7 @@ const routes: RouteRecordRaw[] = [
   { path: '/:pathMatch(.*)*', redirect: '/'},
   { path: '/home', redirect: '/' },
   { path: '/', component: () => import('./views/Home.vue') },
+  { path: '/background', component: () => import('./views/Background.vue') },
   { path: '/zoom', component: () => import('./views/Zoom.vue') },
   { path: '/Cards', component: () => import('./views/Cards.vue') },
   { path: '/parallax-controller', component: () => import('./views/ParallaxController.vue') }

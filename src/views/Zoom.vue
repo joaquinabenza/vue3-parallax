@@ -1,7 +1,7 @@
 <template>
   <ParallaxZoom :refs="refs">    
-    <div ref="first" class="section section-1 glass">
-      <div>
+    <div ref="first" class="section section-1">
+      <div class="glass">
         <h1>Parallax Zoom.</h1>
       </div>
     </div>

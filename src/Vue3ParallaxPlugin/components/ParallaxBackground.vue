@@ -1,9 +1,8 @@
 <template>
   <div class="parallax-container" ref="containerRef">
-    <slot name="background" class="parallax-background">
+    <slot name="background" ref="backgroundRef" class="parallax-background">
     <div
       class="parallax-background"
-      ref="backgroundRef"
     ></div>
     </slot>
     <div class="parallax-content">
@@ -81,7 +80,13 @@ const backgroundColor = ref(props.backgroundColor)
 const backgroundSize = ref(props.backgroundSize)
 const backgroundPosition = ref(props.backgroundPosition)
 // Computed background style
-
+const computedBackgroundStyle = computed(() => {
+  if(backgroundImage.value === 'none'){
+    return;
+  }else if(parallaxBackground.value){
+    parallaxBackground.value.style.backgroundImage = backgroundImage.value;
+  }
+})
 
 // Parallax effect
 let scrollListener:any = null
