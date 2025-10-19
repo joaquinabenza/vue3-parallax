@@ -27,6 +27,7 @@ const mouseY = ref(0)
 const mouseLeaveDelay = ref<any>(null)
 
 const handleMouseMove = (e: MouseEvent) => {
+  if(card.value === null) return;
   mouseX.value = e.pageX - card.value.offsetLeft - width.value / 2;
   mouseY.value = e.pageY - card.value.offsetTop - height.value / 2;
 }
@@ -74,6 +75,7 @@ const cardBgImage = computed(() => {
 
 
 onMounted(() => {
+  if(card.value === null) return;
   width.value = card.value.offsetWidth
   height.value = card.value.offsetHeight
 })

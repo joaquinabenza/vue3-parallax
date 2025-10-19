@@ -128,7 +128,7 @@ const updateParallax = () => {
   }
 }
 
-function getParallaxVisibilityPercent(el) {
+function getParallaxVisibilityPercent(el: HTMLElement | null): number {
   if (!el) return 0;
   const rect = el.getBoundingClientRect();
   const vh = window.innerHeight || document.documentElement.clientHeight;

@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, toRef } from 'vue'
 const props = defineProps({
   // Initial zoom level (percentage)
   background: {
@@ -30,10 +30,10 @@ const props = defineProps({
     default: 10,
     validator: (value:number) => value >= 0 && value <= 200
   },
-  refs:{ type: Array}
+  refs:{ type: Array<HTMLElement>}
 })
-const foreground = ref(null)
-const background = ref(null)
+const foreground = ref<HTMLElement | null>(null)
+const background = ref<HTMLElement | null>(null)
 const first = ref(null)
 const second = ref(null)
 
@@ -50,15 +50,13 @@ const handleScroll = (evt:Event) => {
   // ensure props.refs is an array and has at least one element
   if (!Array.isArray(props.refs) || props.refs.length === 0) return;
   // decreases as user scrolls
-  const first = props.refs[0]
-  const second = props.refs[1]
+  const first = toRef(props.refs[0])
+  const second = toRef(props.refs[1])
   if (!first?.value || !first?.value) return;
-  first.value.style.opacity =
-    getParallaxVisibilityPercent(first) / 100
+  first.value.style.opacity = (getParallaxVisibilityPercent(first) / 100).toString()
   // increases as user scrolls
   if (!second?.value) return;
-  second.value.style.opacity =
-  getParallaxVisibilityPercent(first) / 100
+  second.value.style.opacity = (getParallaxVisibilityPercent(first) / 100).toString();
 
   const maxBackgroundSize = 120
   const backgroundSize = scrollY / (maxBackgroundSize - 100) // increases as user scrolls
@@ -74,7 +72,7 @@ const handleScroll = (evt:Event) => {
   }
 }
 
-function getParallaxVisibilityPercent(el) {
+function getParallaxVisibilityPercent(el: any): number {
   if (!el) return 0;
   const rect = el.value.getBoundingClientRect();
   const vh = window.innerHeight || document.documentElement.clientHeight;
