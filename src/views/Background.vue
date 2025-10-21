@@ -2,7 +2,7 @@
   <div class="page-full">
     <h1 class="title">Parallax Background Examples</h1>
     <h2>Basic Usage</h2>
-    <ParallaxBackground :backgroundImage="'./723-1920x1080.jpg'" :speed="2" direction="down"
+    <ParallaxBackground :backgroundImage="'https://joaquinabenza.github.io/vue3-parallax/live-demo/723-1920x1080.jpg'" :speed="2" direction="down"
       backgroundPosition="top">
       <div class="hero-content">
         <h1>Welcome to My Site</h1>
@@ -10,7 +10,7 @@
       </div>
     </ParallaxBackground>
     <h2>Advanced Usage</h2>
-    <ParallaxBackground :backgroundImage="'./615-1920x1080.jpg'" :speed="3" direction="up"
+    <ParallaxBackground :backgroundImage="'https://joaquinabenza.github.io/vue3-parallax/live-demo/615-1920x1080.jpg'" :speed="3" direction="up"
       background-size="cover" :min-offset="-200" :max-offset="200">
       <div class="hero-content">
         <h1>Advanced Parallax</h1>
@@ -18,7 +18,7 @@
       </div>
     </ParallaxBackground>
     <h3>Different direction</h3>
-    <ParallaxBackground :backgroundImage="'./645-1920x1080.jpg'" :speed="3" direction="down"
+    <ParallaxBackground :backgroundImage="'https://joaquinabenza.github.io/vue3-parallax/live-demo/645-1920x1080.jpg'" :speed="3" direction="down"
       background-size="cover" :min-offset="-200" :max-offset="200">
       <div class="hero-content">
         <h1>Advanced Parallax</h1>
