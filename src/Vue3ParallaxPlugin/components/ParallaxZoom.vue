@@ -93,7 +93,8 @@ img.foreground {
   /* Fill background */
   min-height: 100%;
   min-width: 1024px;
-
+  will-change: transform;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) transform 0.8s;
   /* Scale proportionately */
   width: 100%;
   height: auto;

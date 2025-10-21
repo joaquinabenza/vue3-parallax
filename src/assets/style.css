@@ -24,13 +24,17 @@ body,
 }
 
 .title {
-  font-family: "Raleway";
-  font-size: 24px;
   font-weight: 700;
-  color: #5D4037;
+  color: #cfcfcf;
   text-align: center;
 }
 
+h1,
+h2,
+h3 {
+  margin: 80px 0;
+  padding: 0;
+}
 p {
   line-height: 1.5em;
 }

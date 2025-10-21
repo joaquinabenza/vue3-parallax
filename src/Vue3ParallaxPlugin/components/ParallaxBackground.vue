@@ -1,10 +1,10 @@
 <template>
   <div class="parallax-container" ref="containerRef">
-    <slot name="background" ref="backgroundRef" class="parallax-background">
-    <div
-      class="parallax-background"
-    ></div>
-    </slot>
+    <div ref="backgroundRef" class="parallax-background">
+      <slot name="background">
+      
+      </slot>
+    </div>
     <div class="parallax-content">
       <slot />
     </div>
@@ -35,7 +35,7 @@ const props = defineProps({
   speed: {
     type: Number,
     default: 0.5,
-    validator: (value:number) => value >= 0 && value <= 2
+    validator: (value:number) => value >= 0 && value <= 3
   },
   // Parallax direction ('up', 'down', 'left', 'right')
   direction: {
@@ -79,19 +79,12 @@ const backgroundImage = ref(props.backgroundImage ? `url(${props.backgroundImage
 const backgroundColor = ref(props.backgroundColor)
 const backgroundSize = ref(props.backgroundSize)
 const backgroundPosition = ref(props.backgroundPosition)
-// Computed background style
-const computedBackgroundStyle = computed(() => {
-  if(backgroundImage.value === 'none'){
-    return;
-  }else if(parallaxBackground.value){
-    parallaxBackground.value.style.backgroundImage = backgroundImage.value;
-  }
-})
 
 // Parallax effect
 let scrollListener:any = null
 
 const updateParallax = () => {
+  
   if (!props.enabled || !containerRef.value || !backgroundRef.value) return
 
   const containerRect = containerRef.value.getBoundingClientRect()
@@ -181,7 +174,7 @@ onUnmounted(() => {
   height: 150%;
   will-change: transform;
   transition: transform 0.1s ease-out;
-  z-index: -1;
+  z-index: 0;
   background-image: v-bind(backgroundImage);
   background-color: v-bind(backgroundColor);
   background-size: v-bind(backgroundSize);
