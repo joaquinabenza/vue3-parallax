@@ -20,7 +20,7 @@ jobs:
           node-version: 18
           cache: 'pnpm'
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
       - name: Build docs & live demo
         run: pnpm run build:pages
       - uses: peaceiris/actions-gh-pages@v3
